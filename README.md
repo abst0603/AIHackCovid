@@ -17,41 +17,46 @@ This is a repository to share the code and results of **Team_3** in AICovidHack 
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links-->
 
-### Installation
+## Installation
 
 1. The code is written `Python 3`. So, make sure that you have installed `Python 3` on your system. 
 2. Clone the repo
+
    ```sh
    git clone https://github.com/abst0603/AIHackCovid.git
    ```
 3. Change your directory to our directory
+
    ```sh
    cd AIHackCovid
    ```
 4. Install requirements
+
    ```sh
    pip install -r requirements.txt
    ```
 
 
-### Run the code
+## Run the code
 Our code has to main parts and for running each of them you should run different scripts.
 
-#### Society-related analysis
+### Society-related analysis
 For this section we performed a statistical analysis evaluate the impact of society-related characteristics of countries
 on the outbreak of COVID-19 using OWID dataset. To run the code:
 
 1. Go to the `country_stats` folder
+
    ```sh
    cd country_stats
    ```
 2. Open `countries_analysis.ipynb` using Jupyter Notebook.
 
 
-#### Time-series analysis
+### Time-series analysis
 For this part, we provide a time-series analysis over the OxCGRT dataset using Prophet algorithm. To run the code:   
 
 1. Go to the `country_stats` folder
+
    ```sh
    cd TimeSeriesPrediction
    ```
