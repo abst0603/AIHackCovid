@@ -19,7 +19,7 @@ def diff(col):
 def moving_average(x, w):
     return np.convolve(x, np.ones(w), 'same') / w
 
-data = pd.read_csv('data/OxCGRT_latest.csv',low_memory=False)
+data = pd.read_csv('OxCGRT_latest.csv',low_memory=False)
 policy_NL(data)
 # Preview the first 5 lines of the loaded data
 country = data[data['CountryName']=='Netherlands']
