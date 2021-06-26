@@ -15,7 +15,7 @@ def moving_average(x, w):
     return np.convolve(x, np.ones(w), 'valid') / w
 
 def policy_NL(data):
-    # data = pd.read_csv('OxCGRT_latest.csv',low_memory=False)
+    # data = pd.read_csv('../covid-policy-tracker/data/OxCGRT_latest.csv',low_memory=False)
     # Preview the first 5 lines of the loaded data
     Germany = data[data['CountryName']=='Netherlands']
     colomn = Germany['ConfirmedCases']# ConfirmedDeaths
@@ -47,5 +47,7 @@ def policy_NL(data):
     plt.vlines(x,down,up,colors='r',linestyles = 'dashed')
     plt.legend(['Confirmed cases per day', 'School closing', 'Relax School closing', 'Workplace closing', 'Relax Workplace closing'])
     plt.title('Netherlands')
+    plt.xlabel('Day', fontsize=14)
+    plt.ylabel('Confirmed Cases per day', fontsize=14)
     plt.savefig('Netherlands_SchoolWorkplacePolicies', dpi=80)
     # plt.show()
