@@ -15,8 +15,7 @@ This is a repository to share the code and results of **Team_3** in AICovidHack 
 *** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
 *** See the bottom of this document for the declaration of the reference variables
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links-->
 
 ### Installation
 
@@ -56,4 +55,4 @@ For this part, we provide a time-series analysis over the OxCGRT dataset using P
    ```sh
    cd TimeSeriesPrediction
    ```
-2. To see the result and plots for each country, you should run `timeseries_infectionrate_[CountryName].py`
+2. To see the result and plots for each country, you should run `timeseries_infectionrate_[CountryName].py` using Python 3.

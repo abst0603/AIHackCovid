@@ -14,10 +14,10 @@ def diff(col):
 def moving_average(x, w):
     return np.convolve(x, np.ones(w), 'valid') / w
 
-def policy_NL(data):
+def policy_MW(data):
     # data = pd.read_csv('OxCGRT_latest.csv',low_memory=False)
     # Preview the first 5 lines of the loaded data
-    Germany = data[data['CountryName']=='Netherlands']
+    Germany = data[data['CountryName']=='Malawi']
     colomn = Germany['ConfirmedCases']# ConfirmedDeaths
     colout = diff(colomn)
     colout = moving_average(colout,7)
@@ -28,8 +28,8 @@ def policy_NL(data):
     schoolc_diff = diff(schoolc)
     restrict = schoolc_diff > 0
     x = np.argwhere(restrict)
-    up = 5000
-    down = 1000
+    up = 1000
+    down = 0
     plt.vlines(x,down,up,colors='k')
 
     loos = schoolc_diff < 0
@@ -46,6 +46,6 @@ def policy_NL(data):
     x = np.argwhere(loos)
     plt.vlines(x,down,up,colors='r',linestyles = 'dashed')
     plt.legend(['Confirmed cases per day', 'School closing', 'Relax School closing', 'Workplace closing', 'Relax Workplace closing'])
-    plt.title('Netherlands')
-    plt.savefig('Netherlands_SchoolWorkplacePolicies', dpi=80)
+    plt.title('Malawi')
+    plt.savefig('Malawi_SchoolWorkplacePolicies', dpi=80)
     # plt.show()

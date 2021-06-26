@@ -5,7 +5,7 @@ from prophet import Prophet
 from datetime import datetime
 import holidays
 import seaborn as sns
-from policy_NL import policy_NL
+from policy_MW import policy_MW
 
 from prophet.plot import add_changepoints_to_plot
 
@@ -20,9 +20,9 @@ def moving_average(x, w):
     return np.convolve(x, np.ones(w), 'same') / w
 
 data = pd.read_csv('OxCGRT_latest.csv',low_memory=False)
-policy_NL(data)
+policy_MW(data)
 # Preview the first 5 lines of the loaded data
-country = data[data['CountryName']=='Netherlands']
+country = data[data['CountryName']=='Malawi']
 sc = country['ConfirmedCases']
 confirmedpd = diff(sc)
 confirmedpd = moving_average(confirmedpd,7)
@@ -32,7 +32,7 @@ newdf['Date'] = country['Date']
 newdf['AverageConfirmedCases'] = confirmedpd.tolist()
 newdf.dropna(subset=['AverageConfirmedCases'], inplace=True)
 
-datelist = [[20200312,20200412,0.9],[20200316,20200416,0.9],[20201104,20201204,0.99],[20201215,20210115,0.9]]
+datelist = [20200323,20200423,0.9],[20200404,20200504,0.9],[20200808,20200909,0.9],[20210116,20210216,0.99]
 for i in range(len(datelist)):
     policy_date = datelist[i][0]
     next_policy_date = datelist[i][1]
@@ -54,7 +54,7 @@ for i in range(len(datelist)):
     holidays_df['holiday'] = df_renamed['ds'].apply(lambda x: de_holidays.get(x))
     holidays_df = holidays_df.dropna()
     m = Prophet(changepoint_range=datelist[i][2], changepoint_prior_scale=0.2, yearly_seasonality=2, holidays=holidays_df) # , yearly_seasonality=10
-    m.add_country_holidays(country_name='NL')
+    m.add_country_holidays(country_name='MW')
     m.fit(df_renamed)
     print(m.train_holiday_names)
 
@@ -90,8 +90,8 @@ for i in range(len(datelist)):
     fig1.axes[0].set_ylabel('Confirmed Cases')
     fig1.axes[0].set_xlabel('Date')
 
-    plt.vlines(datetime.strptime(str_policy_date, '%Y-%m-%d'),0,5000,colors='r')
-    plt.savefig('Netherlands_CC_' + str(policy_date), dpi=1200)
+    plt.vlines(datetime.strptime(str_policy_date, '%Y-%m-%d'),0,500,colors='r')
+    plt.savefig('Malawi_CC_' + str(policy_date), dpi=1200)
     # plt.show()
 
 
