@@ -44,10 +44,10 @@ Our code has to main parts and for running each of them you should run different
 For this section we performed a statistical analysis evaluate the impact of society-related characteristics of countries
 on the outbreak of COVID-19 using OWID dataset. To run the code:
 
-1. Go to the `country_stats` folder
+1. Go to the `CountriesAnalysis` folder
 
    ```sh
-   cd country_stats
+   cd CountriesAnalysis
    ```
 2. Open `countries_analysis.ipynb` using Jupyter Notebook.
 
