@@ -55,7 +55,7 @@ on the outbreak of COVID-19 using OWID dataset. To run the code:
 ### Time-series analysis
 For this part, we provide a time-series analysis over the OxCGRT dataset using Prophet algorithm. To run the code:   
 
-1. Go to the `country_stats` folder
+1. Go to the `TimeSeriesPrediction` folder
 
    ```sh
    cd TimeSeriesPrediction
